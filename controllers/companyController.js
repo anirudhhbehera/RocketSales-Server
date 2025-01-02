@@ -87,6 +87,17 @@ exports.getAllCompanies = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+// Get only companies without branches
+exports.getOnlyCompanies = async (req, res) => {
+  try {
+    // Exclude the `branches` field using .select()
+    const companies = await Company.find().select('-branches');
+    res.status(200).json(companies);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 
 // Update companies & also in user collection
 exports.updateCompany = async (req, res) => {

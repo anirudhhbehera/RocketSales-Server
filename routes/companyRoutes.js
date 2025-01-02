@@ -13,7 +13,10 @@ router.put('/update-company/:id', companyController.updateCompany);
 router.delete('/delete-company/:id', companyController.deleteCompany);
 
 // Route for fetching all companies
-router.get('/get-companies', companyController.getAllCompanies);
+router.get('/get-companies-collection', companyController.getAllCompanies);
+// Route for fetching all companies
+router.get('/get-companies', companyController.getOnlyCompanies);
+
 
 // Route for fetching a company by username
 router.get('/get-company/:username', companyController.getCompanyByUsername);
